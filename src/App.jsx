@@ -21,7 +21,6 @@ const STUDIO_CONFIG = {
   tagline: "Step into the flow.",
   logoMark: "D✺",
   logoImage: "/images/logo.png",
-  logoImageBlack: "/images/dryp-logo-black.png",
   description: "Seattle's first immersive yoga studio — where LED visuals meet ancient practice. Transform your mind, body, and soul in South Lake Union.",
   heroLine1: "STEP INTO",
   heroLine2: "THE FLOW",
@@ -325,7 +324,7 @@ function HomePage() {
               return (
                 <div key={item.id} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 14px", background: `linear-gradient(135deg, ${T.successGhost}, transparent)`, border: `1px solid ${T.successBorder}`, borderRadius: 12 }}>
                   {item.photo ? (
-                    <img src={item.photo} alt={item.user} style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
+                    <img src={item.photo} alt={item.user} loading="lazy" width={40} height={40} style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
                   ) : (
                     <div style={{ width: 40, height: 40, borderRadius: "50%", background: T.success, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                       <Sparkles size={18} color="#fff" />
@@ -576,7 +575,7 @@ function CommunityPage() {
             <div key={item.id} style={{ background: T.bgCard, border: `1px solid ${T.border}`, borderRadius: 14, padding: "16px 18px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
                 {item.photo ? (
-                  <img src={item.photo} alt={item.user} style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
+                  <img src={item.photo} alt={item.user} loading="lazy" width={40} height={40} style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
                 ) : (
                   <div style={{ width: 40, height: 40, borderRadius: "50%", background: `linear-gradient(135deg, ${T.accent}, ${T.accentDark})`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Playfair Display', serif", fontSize: 16, color: "#fff", fontWeight: 700, flexShrink: 0 }}>
                     {item.user[0]}
@@ -699,7 +698,7 @@ function EventsPage() {
       {EVENTS.map(ev => (
         <div key={ev.id} style={{ background: T.bgCard, border: `1px solid ${T.border}`, borderRadius: 14, overflow: "hidden", marginBottom: 16 }}>
           <div style={{ background: `linear-gradient(135deg, ${T.bg}, hsl(270,25%,12%))`, padding: "20px 18px", color: "#fff", position: "relative", overflow: "hidden" }}>
-            <img src="/images/events-bg.png" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.15, mixBlendMode: "lighten" }} />
+            <img src="/images/events-bg.png" alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.15, mixBlendMode: "lighten" }} />
             <span style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: T.accent, position: "relative" }}>{ev.type}</span>
             <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, margin: "6px 0 4px", fontWeight: 600, position: "relative" }}>{ev.name}</h3>
             <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 13, color: "#b0a8c8", position: "relative" }}>
@@ -1087,7 +1086,7 @@ function PageTitle({ title, subtitle }) {
 function PageHero({ image, title, subtitle }) {
   return (
     <section style={{ position: "relative", height: 200, overflow: "hidden", marginBottom: 20 }}>
-      <img src={image} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+      <img src={image} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
       <div style={{ position: "absolute", inset: 0, background: `linear-gradient(180deg, ${T.bg}66 0%, ${T.bg}cc 60%, ${T.bg}f2 85%, ${T.bg} 100%)` }} />
       <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 22px 20px" }}>
         <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 32, margin: 0, color: "#fff", letterSpacing: "-0.01em", textShadow: "0 2px 12px rgba(0,0,0,.5)" }}>{title}</h1>
