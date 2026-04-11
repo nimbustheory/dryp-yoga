@@ -1720,10 +1720,10 @@ export default function App() {
           </div>
           <div style={{ background: "#1a1530", border: "1px solid #2d2845", borderRadius: 16, padding: "22px 20px" }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: `${T.warning}18`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
-              <Zap size={18} color={T.warning} />
+              <Heart size={18} color={T.warning} />
             </div>
-            <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", margin: "0 0 6px" }}>MindBody Integration</h3>
-            <p style={{ fontSize: 13, color: "#9ca3af", margin: 0, lineHeight: 1.5 }}>Connects directly with your existing MindBody setup for booking, payments, and member management — no workflow changes needed.</p>
+            <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", margin: "0 0 6px" }}>Community First</h3>
+            <p style={{ fontSize: 13, color: "#9ca3af", margin: 0, lineHeight: 1.5 }}>Inclusive atmosphere, free community days, and land acknowledgment — all reflected in the app.</p>
           </div>
         </div>
       </div>
