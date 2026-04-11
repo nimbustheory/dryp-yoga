@@ -1692,11 +1692,11 @@ export default function App() {
               </div>
             ))}
           </div>
-          <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.15em", color: "#4b5563", marginTop: 32 }}>Built by Nimbus Theory</p>
+          <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.15em", color: "#4b5563", marginTop: 32 }}>Built by LUMI - LumiClass.App</p>
         </div>
 
         {/* Center — Phone Frame */}
-        <div className="demo-phone" style={{ width: 390, flexShrink: 0, height: "min(86vh, 780px)", borderRadius: 32, overflow: "hidden", boxShadow: "0 0 0 2px rgba(139,92,246,.3), 0 0 40px rgba(139,92,246,.3), 0 0 100px rgba(139,92,246,.2), 0 0 200px rgba(139,92,246,.12), 0 0 350px rgba(139,92,246,.06)", position: "relative" }}>
+        <div className="demo-phone" style={{ width: 390, flexShrink: 0, height: "min(86vh, 780px)", borderRadius: 32, overflow: "hidden", boxShadow: "0 0 0 2px rgba(139,92,246,.3), 0 0 40px rgba(139,92,246,.3), 0 0 100px rgba(139,92,246,.2), 0 0 200px rgba(139,92,246,.12), 0 0 350px rgba(139,92,246,.06)", position: "relative", marginTop: -32 }}>
           <div style={{ width: "100%", height: "100%", overflow: "auto", borderRadius: 32 }}>
             {mobileApp}
           </div>
