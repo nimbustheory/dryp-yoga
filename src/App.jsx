@@ -738,20 +738,20 @@ function AdminDashboard() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
       <div>
-        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#fff", margin: 0 }}>Dashboard</h1>
+        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111827", margin: 0 }}>Dashboard</h1>
         <p style={{ fontSize: 13, color: "#9ca3af", margin: "4px 0 0" }}>Welcome back. Here's what's happening at {STUDIO_CONFIG.name}.</p>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 14 }}>
         {metrics.map((m, i) => (
-          <div key={i} style={{ background: "#1a1530", border: "1px solid #2d2845", borderRadius: 12, padding: 18 }}>
+          <div key={i} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 12, padding: 18 }}>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
               <div style={{ width: 36, height: 36, borderRadius: 8, background: `${m.color}18`, display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <m.icon size={18} color={m.color} />
               </div>
             </div>
-            <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 30, color: "#fff", fontWeight: 700 }}>{m.value}</div>
+            <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 30, color: "#111827", fontWeight: 700 }}>{m.value}</div>
             <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 4 }}>
-              <span style={{ display: "flex", alignItems: "center", fontSize: 12, fontWeight: 600, color: m.positive ? "#4ade80" : "#f87171" }}>
+              <span style={{ display: "flex", alignItems: "center", fontSize: 12, fontWeight: 600, color: m.positive ? "#16a34a" : "#dc2626" }}>
                 {m.positive ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />} {m.change}
               </span>
             </div>
@@ -764,10 +764,10 @@ function AdminDashboard() {
           <div style={{ height: 220 }}>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={ADMIN_CHARTS.attendance}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#2d2845" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="day" stroke="#9CA3AF" fontSize={12} />
                 <YAxis stroke="#9CA3AF" fontSize={12} />
-                <Tooltip contentStyle={{ backgroundColor: "#1a1530", border: "1px solid #2d2845", borderRadius: 8, color: "#fff" }} />
+                <Tooltip contentStyle={{ backgroundColor: "#fff", border: "1px solid #e5e7eb", borderRadius: 8, color: "#111827" }} />
                 <Bar dataKey="total" fill={T.accent} radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -777,10 +777,10 @@ function AdminDashboard() {
           <div style={{ height: 220 }}>
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={ADMIN_CHARTS.revenue}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#2d2845" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="month" stroke="#9CA3AF" fontSize={12} />
                 <YAxis stroke="#9CA3AF" fontSize={12} tickFormatter={v => `$${v / 1000}k`} />
-                <Tooltip contentStyle={{ backgroundColor: "#1a1530", border: "1px solid #2d2845", borderRadius: 8, color: "#fff" }} formatter={(v) => [`$${v.toLocaleString()}`, "Revenue"]} />
+                <Tooltip contentStyle={{ backgroundColor: "#fff", border: "1px solid #e5e7eb", borderRadius: 8, color: "#111827" }} formatter={(v) => [`$${v.toLocaleString()}`, "Revenue"]} />
                 <defs>
                   <linearGradient id="revGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor={T.accent} stopOpacity={0.3} />
@@ -803,7 +803,7 @@ function AdminDashboard() {
                     <Cell key={i} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip contentStyle={{ backgroundColor: "#1a1530", border: "1px solid #2d2845", borderRadius: 8, color: "#fff" }} />
+                <Tooltip contentStyle={{ backgroundColor: "#fff", border: "1px solid #e5e7eb", borderRadius: 8, color: "#111827" }} />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -821,10 +821,10 @@ function AdminDashboard() {
             {ADMIN_CHARTS.classPopularity.map((cp, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <span style={{ fontSize: 12, color: "#9ca3af", minWidth: 60 }}>{cp.name}</span>
-                <div style={{ flex: 1, height: 8, borderRadius: 4, background: "#2d2845" }}>
+                <div style={{ flex: 1, height: 8, borderRadius: 4, background: "#f3f4f6" }}>
                   <div style={{ width: `${cp.pct}%`, height: "100%", borderRadius: 4, background: cp.pct >= 90 ? T.warning : cp.pct >= 70 ? T.accent : T.success }} />
                 </div>
-                <span style={{ fontSize: 12, fontWeight: 600, color: cp.pct >= 90 ? T.warning : "#d1d5db", minWidth: 32, textAlign: "right" }}>{cp.pct}%</span>
+                <span style={{ fontSize: 12, fontWeight: 600, color: cp.pct >= 90 ? T.warning : "#374151", minWidth: 32, textAlign: "right" }}>{cp.pct}%</span>
               </div>
             ))}
           </div>
@@ -847,7 +847,7 @@ function AdminMembersPage() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#fff", margin: 0 }}>Members</h1>
+        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111827", margin: 0 }}>Members</h1>
         <button style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8, border: "none", background: T.accent, color: "#fff", fontWeight: 600, fontSize: 13, cursor: "pointer" }}>
           <UserPlus size={16} /> Add Member
         </button>
@@ -855,20 +855,20 @@ function AdminMembersPage() {
       <div style={{ display: "flex", gap: 10 }}>
         <div style={{ flex: 1, position: "relative" }}>
           <Search size={16} style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#6b7280" }} />
-          <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search members..." style={{ width: "100%", padding: "10px 12px 10px 36px", background: "#1a1530", border: "1px solid #2d2845", borderRadius: 8, color: "#fff", fontSize: 13, outline: "none", boxSizing: "border-box" }} />
+          <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search members..." style={{ width: "100%", padding: "10px 12px 10px 36px", background: "#fff", border: "1px solid #e5e7eb", borderRadius: 8, color: "#111827", fontSize: 13, outline: "none", boxSizing: "border-box" }} />
         </div>
         <div style={{ display: "flex", gap: 4 }}>
           {["all", "active", "frozen"].map(f => (
-            <button key={f} onClick={() => setFilter(f)} style={{ padding: "8px 14px", borderRadius: 8, border: "none", fontSize: 12, fontWeight: 600, cursor: "pointer", textTransform: "capitalize", background: filter === f ? T.accent : "#1a1530", color: filter === f ? "#fff" : "#9ca3af" }}>
+            <button key={f} onClick={() => setFilter(f)} style={{ padding: "8px 14px", borderRadius: 8, border: "none", fontSize: 12, fontWeight: 600, cursor: "pointer", textTransform: "capitalize", background: filter === f ? T.accent : "#fff", color: filter === f ? "#fff" : "#9ca3af" }}>
               {f}
             </button>
           ))}
         </div>
       </div>
-      <div style={{ background: "#1a1530", border: "1px solid #2d2845", borderRadius: 12, overflow: "hidden" }}>
+      <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
           <thead>
-            <tr style={{ borderBottom: "1px solid #2d2845" }}>
+            <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
               {["Member", "Membership", "Status", "Classes", "Last Visit"].map(h => (
                 <th key={h} style={{ padding: "12px 16px", textAlign: "left", color: "#9ca3af", fontWeight: 600, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em" }}>{h}</th>
               ))}
@@ -876,18 +876,18 @@ function AdminMembersPage() {
           </thead>
           <tbody>
             {filtered.map(m => (
-              <tr key={m.id} style={{ borderBottom: "1px solid #2d2845" }}>
+              <tr key={m.id} style={{ borderBottom: "1px solid #e5e7eb" }}>
                 <td style={{ padding: "12px 16px" }}>
-                  <p style={{ color: "#fff", fontWeight: 600, margin: 0 }}>{m.name}</p>
+                  <p style={{ color: "#111827", fontWeight: 600, margin: 0 }}>{m.name}</p>
                   <p style={{ color: "#6b7280", fontSize: 12, margin: "2px 0 0" }}>{m.email}</p>
                 </td>
-                <td style={{ padding: "12px 16px", color: "#d1d5db" }}>{m.membership}</td>
+                <td style={{ padding: "12px 16px", color: "#374151" }}>{m.membership}</td>
                 <td style={{ padding: "12px 16px" }}>
                   <span style={{ padding: "3px 8px", borderRadius: 6, fontSize: 11, fontWeight: 600, textTransform: "capitalize", background: m.status === "active" ? `${T.accent}20` : `${T.warning}20`, color: m.status === "active" ? T.accent : T.warning }}>
                     {m.status}
                   </span>
                 </td>
-                <td style={{ padding: "12px 16px", color: "#d1d5db", fontFamily: "monospace" }}>{m.checkIns}</td>
+                <td style={{ padding: "12px 16px", color: "#374151", fontFamily: "monospace" }}>{m.checkIns}</td>
                 <td style={{ padding: "12px 16px", color: "#9ca3af", fontSize: 12 }}>{formatDateShort(m.lastVisit)}</td>
               </tr>
             ))}
@@ -901,11 +901,11 @@ function AdminMembersPage() {
 function AdminSchedulePage() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-      <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#fff", margin: 0 }}>Schedule Management</h1>
-      <div style={{ background: "#1a1530", border: "1px solid #2d2845", borderRadius: 12, overflow: "hidden" }}>
+      <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111827", margin: 0 }}>Schedule Management</h1>
+      <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
           <thead>
-            <tr style={{ borderBottom: "1px solid #2d2845" }}>
+            <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
               {["Time", "Class", "Teacher", "Capacity", "Registered", "Status"].map(h => (
                 <th key={h} style={{ padding: "12px 16px", textAlign: "left", color: "#9ca3af", fontWeight: 600, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em" }}>{h}</th>
               ))}
@@ -913,10 +913,10 @@ function AdminSchedulePage() {
           </thead>
           <tbody>
             {CLASSES_TODAY.map(c => (
-              <tr key={c.id} style={{ borderBottom: "1px solid #2d2845" }}>
-                <td style={{ padding: "12px 16px", color: "#fff", fontFamily: "monospace" }}>{fmtTime(c.time)}</td>
-                <td style={{ padding: "12px 16px", color: "#d1d5db", fontWeight: 600 }}>{c.type}</td>
-                <td style={{ padding: "12px 16px", color: "#d1d5db" }}>{c.coach}</td>
+              <tr key={c.id} style={{ borderBottom: "1px solid #e5e7eb" }}>
+                <td style={{ padding: "12px 16px", color: "#111827", fontFamily: "monospace" }}>{fmtTime(c.time)}</td>
+                <td style={{ padding: "12px 16px", color: "#374151", fontWeight: 600 }}>{c.type}</td>
+                <td style={{ padding: "12px 16px", color: "#374151" }}>{c.coach}</td>
                 <td style={{ padding: "12px 16px", color: "#9ca3af" }}>{c.capacity}</td>
                 <td style={{ padding: "12px 16px" }}>
                   <span style={{ fontFamily: "monospace", fontWeight: 600, color: c.registered >= c.capacity ? T.warning : T.accent }}>{c.registered}/{c.capacity}</span>
@@ -939,31 +939,31 @@ function AdminTeachersPage() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#fff", margin: 0 }}>Teachers</h1>
+        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111827", margin: 0 }}>Teachers</h1>
         <button style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8, border: "none", background: T.accent, color: "#fff", fontWeight: 600, fontSize: 13, cursor: "pointer" }}>
           <UserPlus size={16} /> Add Teacher
         </button>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 14 }}>
         {TEACHERS.map(teacher => (
-          <div key={teacher.id} style={{ background: "#1a1530", border: "1px solid #2d2845", borderRadius: 12, padding: 18 }}>
+          <div key={teacher.id} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 12, padding: 18 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
               <div style={{ width: 48, height: 48, borderRadius: 10, background: `linear-gradient(135deg, ${T.accent}, ${T.accentDark})`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Playfair Display', serif", fontSize: 20, color: "#fff", fontWeight: 600 }}>
                 {teacher.firstName[0]}{teacher.lastName[0]}
               </div>
               <div>
-                <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", margin: 0 }}>{teacher.firstName} {teacher.lastName}</h3>
+                <h3 style={{ fontSize: 15, fontWeight: 700, color: "#111827", margin: 0 }}>{teacher.firstName} {teacher.lastName}</h3>
                 <p style={{ fontSize: 12, color: T.accent, fontWeight: 600, margin: "2px 0 0" }}>{teacher.role}</p>
               </div>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 10 }}>
               {teacher.certs.map(c => (
-                <span key={c} style={{ fontSize: 10, fontWeight: 600, padding: "2px 6px", borderRadius: 4, background: "#2d2845", color: "#9ca3af" }}>{c}</span>
+                <span key={c} style={{ fontSize: 10, fontWeight: 600, padding: "2px 6px", borderRadius: 4, background: "#f3f4f6", color: "#6b7280" }}>{c}</span>
               ))}
             </div>
             <div style={{ display: "flex", gap: 6 }}>
-              <button style={{ flex: 1, padding: "8px 0", borderRadius: 6, border: "1px solid #2d2845", background: "transparent", color: "#d1d5db", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>Edit</button>
-              <button style={{ flex: 1, padding: "8px 0", borderRadius: 6, border: "1px solid #2d2845", background: "transparent", color: "#d1d5db", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>Schedule</button>
+              <button style={{ flex: 1, padding: "8px 0", borderRadius: 6, border: "1px solid #e5e7eb", background: "transparent", color: "#374151", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>Edit</button>
+              <button style={{ flex: 1, padding: "8px 0", borderRadius: 6, border: "1px solid #e5e7eb", background: "transparent", color: "#374151", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>Schedule</button>
             </div>
           </div>
         ))}
@@ -976,17 +976,17 @@ function AdminEventsPage() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#fff", margin: 0 }}>Events & Workshops</h1>
+        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111827", margin: 0 }}>Events & Workshops</h1>
         <button style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8, border: "none", background: T.accent, color: "#fff", fontWeight: 600, fontSize: 13, cursor: "pointer" }}>
           <Plus size={16} /> New Event
         </button>
       </div>
       {EVENTS.map(ev => (
-        <div key={ev.id} style={{ background: "#1a1530", border: "1px solid #2d2845", borderRadius: 12, padding: 18 }}>
+        <div key={ev.id} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 12, padding: 18 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <div>
               <span style={{ fontSize: 11, fontWeight: 700, padding: "2px 8px", borderRadius: 4, background: `${T.accent}20`, color: T.accent }}>{ev.status}</span>
-              <h3 style={{ fontSize: 18, fontWeight: 700, color: "#fff", margin: "8px 0 4px" }}>{ev.name}</h3>
+              <h3 style={{ fontSize: 18, fontWeight: 700, color: "#111827", margin: "8px 0 4px" }}>{ev.name}</h3>
               <p style={{ fontSize: 13, color: "#9ca3af" }}>{formatDateShort(ev.date)} · {ev.type} · ${ev.fee}</p>
             </div>
             <div style={{ textAlign: "right" }}>
@@ -1003,15 +1003,15 @@ function AdminEventsPage() {
 function AdminPricingPage() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-      <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#fff", margin: 0 }}>Pricing & Memberships</h1>
+      <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111827", margin: 0 }}>Pricing & Memberships</h1>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 14 }}>
         {MEMBERSHIP_TIERS.map(tier => (
-          <div key={tier.id} style={{ background: "#1a1530", border: `1px solid ${tier.popular ? T.accent : "#2d2845"}`, borderRadius: 12, padding: 18 }}>
+          <div key={tier.id} style={{ background: "#fff", border: `1px solid ${tier.popular ? T.accent : "#e5e7eb"}`, borderRadius: 12, padding: 18 }}>
             {tier.popular && <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 4, background: T.accentGhost, color: T.accent, marginBottom: 8, display: "inline-block" }}>MOST POPULAR</span>}
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#fff", margin: "0 0 4px" }}>{tier.name}</h3>
+            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#111827", margin: "0 0 4px" }}>{tier.name}</h3>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 34, color: T.accent, fontWeight: 700 }}>${tier.price}<span style={{ fontSize: 14, color: "#9ca3af", fontWeight: 400 }}> {tier.period}</span></div>
             <p style={{ fontSize: 12, color: "#9ca3af", margin: "8px 0" }}>{tier.features.length} features</p>
-            <button style={{ width: "100%", padding: "8px 0", borderRadius: 6, border: "1px solid #2d2845", background: "transparent", color: "#d1d5db", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>Edit Tier</button>
+            <button style={{ width: "100%", padding: "8px 0", borderRadius: 6, border: "1px solid #e5e7eb", background: "transparent", color: "#374151", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>Edit Tier</button>
           </div>
         ))}
       </div>
@@ -1024,15 +1024,15 @@ function AdminBroadcastPage() {
   const [audience, setAudience] = useState("all");
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-      <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#fff", margin: 0 }}>Broadcast & Notifications</h1>
-      <div style={{ background: "#1a1530", border: "1px solid #2d2845", borderRadius: 12, padding: 18 }}>
-        <h3 style={{ color: "#fff", fontSize: 16, fontWeight: 700, margin: "0 0 12px" }}>New Broadcast</h3>
+      <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111827", margin: 0 }}>Broadcast & Notifications</h1>
+      <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 12, padding: 18 }}>
+        <h3 style={{ color: "#111827", fontSize: 16, fontWeight: 700, margin: "0 0 12px" }}>New Broadcast</h3>
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          <input placeholder="Title" style={{ padding: "10px 14px", background: "#0f0d1a", border: "1px solid #2d2845", borderRadius: 8, color: "#fff", fontSize: 13, outline: "none" }} />
-          <textarea value={message} onChange={e => setMessage(e.target.value)} placeholder="Message..." rows={4} style={{ padding: "10px 14px", background: "#0f0d1a", border: "1px solid #2d2845", borderRadius: 8, color: "#fff", fontSize: 13, outline: "none", resize: "vertical", fontFamily: "inherit" }} />
+          <input placeholder="Title" style={{ padding: "10px 14px", background: "#f9fafb", border: "1px solid #e5e7eb", borderRadius: 8, color: "#111827", fontSize: 13, outline: "none" }} />
+          <textarea value={message} onChange={e => setMessage(e.target.value)} placeholder="Message..." rows={4} style={{ padding: "10px 14px", background: "#f9fafb", border: "1px solid #e5e7eb", borderRadius: 8, color: "#111827", fontSize: 13, outline: "none", resize: "vertical", fontFamily: "inherit" }} />
           <div style={{ display: "flex", gap: 6 }}>
             {["all", "unlimited", "class packs", "teachers"].map(a => (
-              <button key={a} onClick={() => setAudience(a)} style={{ padding: "6px 12px", borderRadius: 6, border: "none", fontSize: 12, fontWeight: 600, cursor: "pointer", textTransform: "capitalize", background: audience === a ? T.accent : "#2d2845", color: audience === a ? "#fff" : "#9ca3af" }}>{a}</button>
+              <button key={a} onClick={() => setAudience(a)} style={{ padding: "6px 12px", borderRadius: 6, border: "none", fontSize: 12, fontWeight: 600, cursor: "pointer", textTransform: "capitalize", background: audience === a ? T.accent : "#e5e7eb", color: audience === a ? "#fff" : "#9ca3af" }}>{a}</button>
             ))}
           </div>
           <button style={{ padding: "10px 0", borderRadius: 8, border: "none", background: T.accent, color: "#fff", fontWeight: 700, fontSize: 14, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
@@ -1041,16 +1041,72 @@ function AdminBroadcastPage() {
         </div>
       </div>
       <div>
-        <h3 style={{ color: "#fff", fontSize: 16, fontWeight: 700, margin: "0 0 12px" }}>Sent Broadcasts</h3>
+        <h3 style={{ color: "#111827", fontSize: 16, fontWeight: 700, margin: "0 0 12px" }}>Sent Broadcasts</h3>
         {ANNOUNCEMENTS.map(a => (
-          <div key={a.id} style={{ background: "#1a1530", border: "1px solid #2d2845", borderRadius: 10, padding: 14, marginBottom: 8 }}>
+          <div key={a.id} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 10, padding: 14, marginBottom: 8 }}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <h4 style={{ color: "#fff", margin: 0, fontSize: 14, fontWeight: 600 }}>{a.title}</h4>
+              <h4 style={{ color: "#111827", margin: 0, fontSize: 14, fontWeight: 600 }}>{a.title}</h4>
               {a.pinned && <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 6px", borderRadius: 4, background: T.accentGhost, color: T.accent }}>PINNED</span>}
             </div>
             <p style={{ fontSize: 12, color: "#9ca3af", margin: "4px 0 0" }}>{a.message}</p>
           </div>
         ))}
+      </div>
+    </div>
+  );
+}
+
+function AdminSettingsPage() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+      <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: "#111827", margin: 0 }}>Settings</h1>
+      <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 12, padding: 18 }}>
+        <h3 style={{ color: "#111827", fontSize: 16, fontWeight: 700, margin: "0 0 12px" }}>Studio Information</h3>
+        <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+          {[
+            { label: "Studio Name", value: STUDIO_CONFIG.name },
+            { label: "Address", value: `${STUDIO_CONFIG.address.street}, ${STUDIO_CONFIG.address.city}, ${STUDIO_CONFIG.address.state} ${STUDIO_CONFIG.address.zip}` },
+            { label: "Phone", value: STUDIO_CONFIG.phone },
+            { label: "Email", value: STUDIO_CONFIG.email },
+            { label: "Website", value: STUDIO_CONFIG.website },
+          ].map((item, i) => (
+            <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderBottom: i < 4 ? "1px solid #f3f4f6" : "none" }}>
+              <span style={{ fontSize: 13, color: "#6b7280" }}>{item.label}</span>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "#111827" }}>{item.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 12, padding: 18 }}>
+        <h3 style={{ color: "#111827", fontSize: 16, fontWeight: 700, margin: "0 0 12px" }}>App Configuration</h3>
+        <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+          {[
+            { label: "Class Capacity (Standard)", value: STUDIO_CONFIG.classCapacity },
+            { label: "Class Capacity (Specialty)", value: STUDIO_CONFIG.specialtyCapacity },
+            { label: "Practice Tracking", value: STUDIO_CONFIG.features.practiceTracking ? "Enabled" : "Disabled" },
+            { label: "Community Feed", value: STUDIO_CONFIG.features.communityFeed ? "Enabled" : "Disabled" },
+            { label: "Guest Passes", value: STUDIO_CONFIG.features.guestPasses ? "Enabled" : "Disabled" },
+            { label: "Workshops", value: STUDIO_CONFIG.features.workshops ? "Enabled" : "Disabled" },
+          ].map((item, i) => (
+            <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderBottom: i < 5 ? "1px solid #f3f4f6" : "none" }}>
+              <span style={{ fontSize: 13, color: "#6b7280" }}>{item.label}</span>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "#111827" }}>{item.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 12, padding: 18 }}>
+        <h3 style={{ color: "#111827", fontSize: 16, fontWeight: 700, margin: "0 0 12px" }}>Social & Links</h3>
+        <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderBottom: "1px solid #f3f4f6" }}>
+            <span style={{ fontSize: 13, color: "#6b7280" }}>Instagram</span>
+            <span style={{ fontSize: 13, fontWeight: 600, color: "#111827" }}>{STUDIO_CONFIG.social.instagram}</span>
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0" }}>
+            <span style={{ fontSize: 13, color: "#6b7280" }}>Neighborhood</span>
+            <span style={{ fontSize: 13, fontWeight: 600, color: "#111827" }}>{STUDIO_CONFIG.neighborhood}</span>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -1212,8 +1268,8 @@ function CTACard() {
 
 function AdminCard({ title, children }) {
   return (
-    <div style={{ background: "#1a1530", border: "1px solid #2d2845", borderRadius: 12, padding: 18 }}>
-      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#fff", margin: "0 0 14px" }}>{title}</h3>
+    <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 12, padding: 18 }}>
+      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#111827", margin: "0 0 14px" }}>{title}</h3>
       {children}
     </div>
   );
@@ -1235,8 +1291,8 @@ function SettingsModal({ onClose }) {
   );
 
   return (
-    <div onClick={onClose} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,.5)", backdropFilter: "blur(4px)", zIndex: 100, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
-      <div onClick={e => e.stopPropagation()} style={{ background: T.bgCard, borderRadius: "20px 20px 0 0", width: "100%", maxWidth: 390, maxHeight: "85vh", overflow: "auto", padding: "20px 20px 40px" }}>
+    <div onClick={onClose} style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,.5)", backdropFilter: "blur(4px)", zIndex: 100, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
+      <div onClick={e => e.stopPropagation()} style={{ background: T.bgCard, borderRadius: "20px 20px 0 0", width: "100%", maxHeight: "85%", overflow: "auto", padding: "20px 20px 40px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 26, margin: 0 }}>Settings</h2>
           <button onClick={onClose} style={{ width: 32, height: 32, borderRadius: 8, border: `1px solid ${T.border}`, background: "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}><X size={18} /></button>
@@ -1268,7 +1324,7 @@ function SettingsModal({ onClose }) {
         <div style={{ padding: "14px 0" }}>
           <h3 style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: T.textMuted, margin: "0 0 10px" }}>About</h3>
           <p style={{ fontSize: 13, color: T.textMuted, margin: 0 }}>{STUDIO_CONFIG.name} {STUDIO_CONFIG.subtitle} App v1.0</p>
-          <p style={{ fontSize: 12, color: T.textFaint, margin: "4px 0 0" }}>Powered by Studio Platform</p>
+          <p style={{ fontSize: 12, color: T.textFaint, margin: "4px 0 0" }}>Built by LUMI — LumiClass.App</p>
         </div>
         <button style={{ width: "100%", padding: "12px 0", borderRadius: 8, border: `1px solid ${T.border}`, background: "transparent", color: T.accent, fontWeight: 700, fontSize: 14, cursor: "pointer", marginTop: 8 }}>
           Sign Out
@@ -1290,8 +1346,8 @@ function NotificationsModal({ onClose }) {
   ];
 
   return (
-    <div onClick={onClose} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,.5)", backdropFilter: "blur(4px)", zIndex: 100, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
-      <div onClick={e => e.stopPropagation()} style={{ background: T.bgCard, borderRadius: "20px 20px 0 0", width: "100%", maxWidth: 390, maxHeight: "80vh", overflow: "auto", padding: "20px 20px 40px" }}>
+    <div onClick={onClose} style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,.5)", backdropFilter: "blur(4px)", zIndex: 100, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
+      <div onClick={e => e.stopPropagation()} style={{ background: T.bgCard, borderRadius: "20px 20px 0 0", width: "100%", maxHeight: "80%", overflow: "auto", padding: "20px 20px 40px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 26, margin: 0 }}>Notifications</h2>
           <button onClick={onClose} style={{ width: 32, height: 32, borderRadius: 8, border: `1px solid ${T.border}`, background: "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}><X size={18} /></button>
@@ -1334,8 +1390,8 @@ function ReservationModal({ classData, onConfirm, onClose }) {
   };
 
   return (
-    <div onClick={onClose} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,.5)", backdropFilter: "blur(4px)", zIndex: 100, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
-      <div onClick={e => e.stopPropagation()} style={{ background: T.bgCard, borderRadius: "20px 20px 0 0", width: "100%", maxWidth: 390, padding: "24px 20px 36px", animation: "slideUp 0.25s ease-out" }}>
+    <div onClick={onClose} style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,.5)", backdropFilter: "blur(4px)", zIndex: 100, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
+      <div onClick={e => e.stopPropagation()} style={{ background: T.bgCard, borderRadius: "20px 20px 0 0", width: "100%", padding: "24px 20px 36px", animation: "slideUp 0.25s ease-out" }}>
 
         {!confirmed ? (
           <>
@@ -1444,11 +1500,9 @@ function ReservationModal({ classData, onConfirm, onClose }) {
 // ═══════════════════════════════════════════════════════════════
 //  MAIN APP
 // ═══════════════════════════════════════════════════════════════
-export default function App() {
-  const [page, setPage] = useState("home");
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [logoClicks, setLogoClicks] = useState(0);
-  const [showAdminToggle, setShowAdminToggle] = useState(false);
+export default function App({ onEnterAdmin, startInAdmin, onExitAdmin }) {
+  const [page, setPage] = useState(startInAdmin ? "admin-dashboard" : "home");
+  const [isAdmin, setIsAdmin] = useState(!!startInAdmin);
   const [showMore, setShowMore] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
@@ -1473,13 +1527,6 @@ export default function App() {
     setFeedCelebrations(prev => ({ ...prev, [feedId]: prev[feedId] ? 0 : 1 }));
   }, []);
 
-  const handleLogoClick = useCallback(() => {
-    const n = logoClicks + 1;
-    setLogoClicks(n);
-    if (n >= 5 && !showAdminToggle) setShowAdminToggle(true);
-    setTimeout(() => setLogoClicks(0), 2000);
-  }, [logoClicks, showAdminToggle]);
-
   const mainTabs = [
     { id: "home", label: "Home", icon: Home },
     { id: "classes", label: "Classes", icon: Waves },
@@ -1503,6 +1550,7 @@ export default function App() {
     { id: "admin-events", label: "Events", icon: CalendarDays },
     { id: "admin-pricing", label: "Pricing", icon: DollarSign },
     { id: "admin-broadcast", label: "Broadcast", icon: Megaphone },
+    { id: "admin-settings", label: "Settings", icon: Settings },
   ];
 
   const renderPage = () => {
@@ -1522,6 +1570,7 @@ export default function App() {
       case "admin-events": return <AdminEventsPage />;
       case "admin-pricing": return <AdminPricingPage />;
       case "admin-broadcast": return <AdminBroadcastPage />;
+      case "admin-settings": return <AdminSettingsPage />;
       default: return <HomePage />;
     }
   };
@@ -1531,25 +1580,29 @@ export default function App() {
 
   // ——— ADMIN LAYOUT ———
   if (isAdmin) {
+    const handleExitAdmin = () => {
+      if (onExitAdmin) { onExitAdmin(); }
+      else { setIsAdmin(false); setPage("home"); }
+    };
     return (
       <AppContext.Provider value={{ page, setPage, classRegistrations, registerForClass, openReservation, feedCelebrations, celebrateFeed }}>
-        <div style={{ display: "flex", minHeight: "100vh", fontFamily: "'DM Sans', system-ui, sans-serif", background: "#0f0d1a" }}>
-          <aside style={{ width: 240, background: T.bg, color: "#fff", display: "flex", flexDirection: "column", position: "fixed", top: 0, left: 0, bottom: 0, zIndex: 40 }}>
-            <div style={{ padding: "20px 18px", borderBottom: "1px solid #2d2845" }}>
+        <div style={{ display: "flex", minHeight: "100vh", fontFamily: "'DM Sans', system-ui, sans-serif", background: "#f5f5f5" }}>
+          <aside style={{ width: 240, background: "#fff", color: "#111827", display: "flex", flexDirection: "column", position: "fixed", top: 0, left: 0, bottom: 0, zIndex: 40, borderRight: "1px solid #e5e7eb" }}>
+            <div style={{ padding: "20px 18px", borderBottom: "1px solid #e5e7eb" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <img src={STUDIO_CONFIG.logoImage} alt={STUDIO_CONFIG.name} style={{ width: 40, height: 40, borderRadius: 10, objectFit: "cover" }} />
                 <div>
-                  <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, letterSpacing: "0.02em", display: "block", lineHeight: 1 }}>{STUDIO_CONFIG.name}</span>
-                  <span style={{ fontSize: 10, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.15em" }}>Admin Portal</span>
+                  <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, letterSpacing: "0.02em", display: "block", lineHeight: 1, color: "#111827" }}>{STUDIO_CONFIG.name}</span>
+                  <span style={{ fontSize: 10, color: "#9ca3af", textTransform: "uppercase", letterSpacing: "0.15em" }}>Admin Portal</span>
                 </div>
               </div>
             </div>
             <nav style={{ flex: 1, padding: "12px 8px", overflow: "auto" }}>
-              <p style={{ fontSize: 10, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#71717a", padding: "0 10px", margin: "0 0 8px" }}>Management</p>
+              <p style={{ fontSize: 10, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#9ca3af", padding: "0 10px", margin: "0 0 8px" }}>Management</p>
               {adminTabs.map(tab => {
                 const active = page === tab.id;
                 return (
-                  <button key={tab.id} onClick={() => setPage(tab.id)} style={{ display: "flex", alignItems: "center", gap: 10, width: "100%", padding: "10px 12px", borderRadius: 8, border: "none", background: active ? T.accent : "transparent", color: active ? "#fff" : "#a1a1aa", fontSize: 13, fontWeight: active ? 600 : 400, cursor: "pointer", marginBottom: 2, textAlign: "left" }}>
+                  <button key={tab.id} onClick={() => setPage(tab.id)} style={{ display: "flex", alignItems: "center", gap: 10, width: "100%", padding: "10px 12px", borderRadius: 8, border: "none", background: active ? T.accent : "transparent", color: active ? "#fff" : "#6b7280", fontSize: 13, fontWeight: active ? 600 : 400, cursor: "pointer", marginBottom: 2, textAlign: "left" }}>
                     <tab.icon size={18} />
                     <span>{tab.label}</span>
                     {active && <ChevronRight size={14} style={{ marginLeft: "auto", opacity: 0.6 }} />}
@@ -1557,8 +1610,8 @@ export default function App() {
                 );
               })}
             </nav>
-            <div style={{ borderTop: "1px solid #2d2845", padding: "10px 8px" }}>
-              <button onClick={() => { setIsAdmin(false); setPage("home"); }} style={{ display: "flex", alignItems: "center", gap: 10, width: "100%", padding: "10px 12px", borderRadius: 8, border: "none", background: "transparent", color: "#a1a1aa", fontSize: 13, cursor: "pointer", textAlign: "left" }}>
+            <div style={{ borderTop: "1px solid #e5e7eb", padding: "10px 8px" }}>
+              <button onClick={handleExitAdmin} style={{ display: "flex", alignItems: "center", gap: 10, width: "100%", padding: "10px 12px", borderRadius: 8, border: "none", background: "transparent", color: "#6b7280", fontSize: 13, cursor: "pointer", textAlign: "left" }}>
                 <LogOut size={18} />
                 <span>Exit Admin</span>
               </button>
@@ -1573,159 +1626,99 @@ export default function App() {
   }
 
   // ——— CONSUMER LAYOUT ———
-  const mobileApp = (
-    <div style={{ maxWidth: 390, margin: "0 auto", minHeight: "100vh", background: T.bgDim, fontFamily: "'DM Sans', system-ui, sans-serif", position: "relative" }}>
+  const handleAdminEnter = () => {
+    if (onEnterAdmin) { onEnterAdmin(); }
+    else { setIsAdmin(true); setPage("admin-dashboard"); }
+  };
 
-      {/* Header */}
-      <header style={{ position: "sticky", top: 0, zIndex: 30, background: T.bg, color: "#fff", padding: "10px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <button onClick={handleLogoClick} style={{ display: "flex", alignItems: "center", gap: 8, background: "none", border: "none", cursor: "pointer", color: "#fff" }}>
-          <img src={STUDIO_CONFIG.logoImage} alt={STUDIO_CONFIG.name} style={{ width: 38, height: 38, borderRadius: 10, objectFit: "cover" }} />
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, lineHeight: 1, letterSpacing: "0.04em" }}>{STUDIO_CONFIG.name}</span>
-            <span style={{ fontSize: 10, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.15em" }}>{STUDIO_CONFIG.subtitle}</span>
-          </div>
-        </button>
-        <div style={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <button aria-label="Admin panel" onClick={() => { setIsAdmin(true); setPage("admin-dashboard"); }} style={{ padding: 8, borderRadius: 8, border: "none", background: "transparent", cursor: "pointer", color: T.accent }}>
-              <Shield size={20} />
-            </button>
-          <button aria-label="Notifications" onClick={() => setShowNotifications(true)} style={{ padding: 8, borderRadius: 8, border: "none", background: "transparent", cursor: "pointer", color: "#fff", position: "relative" }}>
-            <Bell size={20} />
-            {unreadCount > 0 && <span style={{ position: "absolute", top: 4, right: 4, width: 14, height: 14, borderRadius: "50%", background: T.accent, fontSize: 10, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }}>{unreadCount}</span>}
-          </button>
-          <button aria-label="Settings" onClick={() => setShowSettings(true)} style={{ padding: 8, borderRadius: 8, border: "none", background: "transparent", cursor: "pointer", color: "#fff" }}>
-            <Settings size={20} />
-          </button>
-        </div>
-      </header>
+  return (
+    <AppContext.Provider value={{ page, setPage, classRegistrations, registerForClass, openReservation, feedCelebrations, celebrateFeed }}>
+      <div style={{ width: "100%", height: "100%", background: T.bgDim, fontFamily: "'DM Sans', system-ui, sans-serif", position: "relative" }}>
 
-      {/* Content */}
-      <main style={{ paddingBottom: 80 }}>
-        {renderPage()}
-      </main>
-
-      {/* More Menu */}
-      {showMore && (
-        <div onClick={() => setShowMore(false)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,.5)", backdropFilter: "blur(4px)", zIndex: 40 }}>
-          <div onClick={e => e.stopPropagation()} style={{ position: "absolute", bottom: 68, left: 16, right: 16, maxWidth: 358, margin: "0 auto", background: T.bgCard, borderRadius: 16, padding: "14px 12px", boxShadow: "0 8px 32px rgba(0,0,0,.15)" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 6px 8px" }}>
-              <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 20 }}>More</span>
-              <button onClick={() => setShowMore(false)} style={{ padding: 4, borderRadius: 6, border: "none", background: "transparent", cursor: "pointer" }}><X size={18} color={T.textMuted} /></button>
+        {/* Scrollable content area */}
+        <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 60, overflowY: "auto", scrollbarWidth: "none", msOverflowStyle: "none" }}>
+          {/* Header */}
+          <header style={{ position: "sticky", top: 0, zIndex: 30, background: T.bg, color: "#fff", padding: "10px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <img src={STUDIO_CONFIG.logoImage} alt={STUDIO_CONFIG.name} style={{ width: 38, height: 38, borderRadius: 10, objectFit: "cover" }} />
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, lineHeight: 1, letterSpacing: "0.04em" }}>{STUDIO_CONFIG.name}</span>
+                <span style={{ fontSize: 10, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.15em" }}>{STUDIO_CONFIG.subtitle}</span>
+              </div>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-              {moreItems.map(item => {
-                const active = page === item.id;
+            <div style={{ display: "flex", alignItems: "center", gap: 2 }}>
+              <button aria-label="Admin panel" onClick={handleAdminEnter} style={{ padding: 8, borderRadius: 8, border: "none", background: "transparent", cursor: "pointer", color: T.accent }}>
+                <Shield size={20} />
+              </button>
+              <button aria-label="Notifications" onClick={() => setShowNotifications(true)} style={{ padding: 8, borderRadius: 8, border: "none", background: "transparent", cursor: "pointer", color: "#fff", position: "relative" }}>
+                <Bell size={20} />
+                {unreadCount > 0 && <span style={{ position: "absolute", top: 4, right: 4, width: 14, height: 14, borderRadius: "50%", background: T.accent, fontSize: 10, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }}>{unreadCount}</span>}
+              </button>
+              <button aria-label="Settings" onClick={() => setShowSettings(true)} style={{ padding: 8, borderRadius: 8, border: "none", background: "transparent", cursor: "pointer", color: "#fff" }}>
+                <Settings size={20} />
+              </button>
+            </div>
+          </header>
+
+          {/* Page Content */}
+          <main>
+            {renderPage()}
+          </main>
+        </div>
+
+        {/* Bottom Nav */}
+        <nav style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 60, zIndex: 50, background: "#fff", borderTop: "1px solid #eee" }}>
+          <div style={{ display: "flex", justifyContent: "space-around", padding: "6px 4px 10px" }}>
+            {mainTabs.map(tab => {
+              const active = tab.id === "more" ? (isMoreActive || showMore) : page === tab.id;
+              if (tab.id === "more") {
                 return (
-                  <button key={item.id} onClick={() => { setPage(item.id); setShowMore(false); }} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, padding: "14px 8px", borderRadius: 10, border: "none", cursor: "pointer", background: active ? T.accentGhost : T.bgDim, color: active ? T.accent : T.textMuted }}>
-                    <item.icon size={22} />
-                    <span style={{ fontSize: 13, fontWeight: 600 }}>{item.label}</span>
+                  <button key={tab.id} onClick={() => setShowMore(true)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2, padding: "6px 12px", borderRadius: 10, border: "none", background: "transparent", cursor: "pointer", color: active ? T.accent : T.textFaint }}>
+                    <tab.icon size={20} strokeWidth={active ? 2.5 : 2} />
+                    <span style={{ fontSize: 11, fontWeight: active ? 700 : 500 }}>{tab.label}</span>
                   </button>
                 );
-              })}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Bottom Nav */}
-      <nav style={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 30, background: T.bgCard, borderTop: `1px solid ${T.border}`, maxWidth: 390, margin: "0 auto" }}>
-        <div style={{ display: "flex", justifyContent: "space-around", padding: "6px 4px 10px" }}>
-          {mainTabs.map(tab => {
-            const active = tab.id === "more" ? (isMoreActive || showMore) : page === tab.id;
-            if (tab.id === "more") {
+              }
               return (
-                <button key={tab.id} onClick={() => setShowMore(true)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2, padding: "6px 12px", borderRadius: 10, border: "none", background: "transparent", cursor: "pointer", color: active ? T.accent : T.textFaint }}>
+                <button key={tab.id} onClick={() => setPage(tab.id)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2, padding: "6px 12px", borderRadius: 10, border: "none", background: "transparent", cursor: "pointer", color: active ? T.accent : T.textFaint }}>
                   <tab.icon size={20} strokeWidth={active ? 2.5 : 2} />
                   <span style={{ fontSize: 11, fontWeight: active ? 700 : 500 }}>{tab.label}</span>
                 </button>
               );
-            }
-            return (
-              <button key={tab.id} onClick={() => setPage(tab.id)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2, padding: "6px 12px", borderRadius: 10, border: "none", background: "transparent", cursor: "pointer", color: active ? T.accent : T.textFaint }}>
-                <tab.icon size={20} strokeWidth={active ? 2.5 : 2} />
-                <span style={{ fontSize: 11, fontWeight: active ? 700 : 500 }}>{tab.label}</span>
-              </button>
-            );
-          })}
-        </div>
-      </nav>
-
-      {/* Modals */}
-      {showSettings && <SettingsModal onClose={() => setShowSettings(false)} />}
-      {showNotifications && <NotificationsModal onClose={() => setShowNotifications(false)} />}
-      {reservationClass && <ReservationModal classData={reservationClass} onConfirm={registerForClass} onClose={() => setReservationClass(null)} />}
-    </div>
-  );
-
-  return (
-    <AppContext.Provider value={{ page, setPage, classRegistrations, registerForClass, openReservation, feedCelebrations, celebrateFeed }}>
-      {/* Presentation wrapper — visible on wide screens */}
-      <div style={{ minHeight: "100vh", background: "#0c0a14", fontFamily: "'DM Sans', system-ui, sans-serif", display: "flex", alignItems: "center", justifyContent: "center", gap: 48, padding: "40px 48px" }}>
-
-        {/* Left — Sales Info */}
-        <div className="demo-sidebar" style={{ width: 300, flexShrink: 0, color: "#fff" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", color: T.accent, marginBottom: 16 }}>Prototype Demo</p>
-          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
-            <img src={STUDIO_CONFIG.logoImage} alt="" style={{ width: 48, height: 48, borderRadius: 12 }} />
-            <div>
-              <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, margin: 0, letterSpacing: "0.02em" }}>{STUDIO_CONFIG.name}</h1>
-              <p style={{ fontSize: 14, color: "#9ca3af", margin: 0 }}>Yoga Studio App</p>
-            </div>
+            })}
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 32 }}>
-            {[
-              { icon: Calendar, label: "Class Scheduling", desc: "Weekly schedule with real-time reservations" },
-              { icon: Flame, label: "Practice Tracking", desc: "Reflections, streaks, and milestone badges" },
-              { icon: Heart, label: "Community Feed", desc: "Member milestones and celebrations" },
-              { icon: Users, label: "Teacher Profiles", desc: "Bios, certifications, and specialties" },
-              { icon: CreditCard, label: "Membership Tiers", desc: "6 plans from intro to annual unlimited" },
-              { icon: CalendarDays, label: "Events & Workshops", desc: "Special sessions and teacher training" },
-              { icon: Bell, label: "Smart Notifications", desc: "Class reminders and streak alerts" },
-              { icon: LayoutDashboard, label: "Admin Dashboard", desc: "Full analytics, CRM, and broadcast tools" },
-            ].map((item, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
-                <item.icon size={16} color={T.accent} style={{ marginTop: 2, flexShrink: 0 }} />
-                <div>
-                  <p style={{ fontSize: 14, fontWeight: 600, margin: 0, color: "#e5e7eb" }}>{item.label}</p>
-                  <p style={{ fontSize: 12, color: "#6b7280", margin: "2px 0 0" }}>{item.desc}</p>
-                </div>
+        </nav>
+
+        {/* More Menu Overlay */}
+        {showMore && (
+          <div onClick={() => setShowMore(false)} style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,.5)", backdropFilter: "blur(4px)", zIndex: 40 }}>
+            <div onClick={e => e.stopPropagation()} style={{ position: "absolute", bottom: 68, left: 16, right: 16, background: T.bgCard, borderRadius: 16, padding: "14px 12px", boxShadow: "0 8px 32px rgba(0,0,0,.15)" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 6px 8px" }}>
+                <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 20 }}>More</span>
+                <button onClick={() => setShowMore(false)} style={{ padding: 4, borderRadius: 6, border: "none", background: "transparent", cursor: "pointer" }}><X size={18} color={T.textMuted} /></button>
               </div>
-            ))}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                {moreItems.map(item => {
+                  const active = page === item.id;
+                  return (
+                    <button key={item.id} onClick={() => { setPage(item.id); setShowMore(false); }} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, padding: "14px 8px", borderRadius: 10, border: "none", cursor: "pointer", background: active ? T.accentGhost : T.bgDim, color: active ? T.accent : T.textMuted }}>
+                      <item.icon size={22} />
+                      <span style={{ fontSize: 13, fontWeight: 600 }}>{item.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-          <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.15em", color: "#4b5563", marginTop: 32 }}>Built by LUMI - LumiClass.App</p>
-        </div>
+        )}
 
-        {/* Center — Phone Frame */}
-        <div className="demo-phone" style={{ width: 390, flexShrink: 0, height: "min(86vh, 780px)", borderRadius: 32, overflow: "hidden", boxShadow: "0 0 0 2px rgba(139,92,246,.3), 0 0 40px rgba(139,92,246,.3), 0 0 100px rgba(139,92,246,.2), 0 0 200px rgba(139,92,246,.12), 0 0 350px rgba(139,92,246,.06)", position: "relative", marginTop: -32 }}>
-          <div style={{ width: "100%", height: "100%", overflow: "auto", borderRadius: 32 }}>
-            {mobileApp}
-          </div>
-        </div>
+        {/* Modals */}
+        {showSettings && <SettingsModal onClose={() => setShowSettings(false)} />}
+        {showNotifications && <NotificationsModal onClose={() => setShowNotifications(false)} />}
+        {reservationClass && <ReservationModal classData={reservationClass} onConfirm={registerForClass} onClose={() => setReservationClass(null)} />}
 
-        {/* Right — Feature Cards */}
-        <div className="demo-sidebar" style={{ width: 300, flexShrink: 0, display: "flex", flexDirection: "column", gap: 16 }}>
-          <div style={{ background: "#1a1530", border: "1px solid #2d2845", borderRadius: 16, padding: "22px 20px" }}>
-            <div style={{ width: 36, height: 36, borderRadius: 10, background: `${T.accent}18`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
-              <Shield size={18} color={T.accent} />
-            </div>
-            <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", margin: "0 0 6px" }}>Admin Dashboard</h3>
-            <p style={{ fontSize: 13, color: "#9ca3af", margin: 0, lineHeight: 1.5 }}>Tap the shield icon in the app header to access the full admin suite — analytics, member CRM, scheduling, and broadcast tools.</p>
-          </div>
-          <div style={{ background: "#1a1530", border: "1px solid #2d2845", borderRadius: 16, padding: "22px 20px" }}>
-            <div style={{ width: 36, height: 36, borderRadius: 10, background: `${T.success}18`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
-              <Sparkles size={18} color={T.success} />
-            </div>
-            <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", margin: "0 0 6px" }}>Built for DRYP</h3>
-            <p style={{ fontSize: 13, color: "#9ca3af", margin: 0, lineHeight: 1.5 }}>Custom-designed around your brand, class types, teachers, and the immersive studio experience your members already love.</p>
-          </div>
-          <div style={{ background: "#1a1530", border: "1px solid #2d2845", borderRadius: 16, padding: "22px 20px" }}>
-            <div style={{ width: 36, height: 36, borderRadius: 10, background: `${T.warning}18`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
-              <Heart size={18} color={T.warning} />
-            </div>
-            <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", margin: "0 0 6px" }}>Community First</h3>
-            <p style={{ fontSize: 13, color: "#9ca3af", margin: 0, lineHeight: 1.5 }}>Inclusive atmosphere, free community days, and land acknowledgment — all reflected in the app.</p>
-          </div>
-        </div>
+        {/* Hide scrollbars */}
+        <style>{`div::-webkit-scrollbar { display: none; }`}</style>
       </div>
     </AppContext.Provider>
   );
